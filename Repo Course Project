@@ -1,0 +1,74 @@
+###
+### Course Project.
+
+### 
+```{r}
+#library(caret); library(gbm)
+
+#data(pml.training)
+
+#Construct train and test set.
+
+#pmltrainMin <- subset(pml.training, select= -c(X, user_name))
+
+#inTrain <- createDataPartition(y = pmltrainMin$classe,
+#                               p=0.8, list=FALSE)
+
+#train <- pmltrainMin[ inTrain,]
+#test  <- pmltrainMin[-inTrain,]
+
+#gbm1 <- gbm(classe ~., data=train, distribution="gaussian",
+#            n.trees=10000, shrinkage=0.1,
+#            cv.folds=2, verbose=TRUE)
+
+#bestperf1 <- gbm.perf(gbm1, plot.it=TRUE, method="cv")
+
+#pmlpred1 <- predict(gbm1, test, bestperf1)
+
+#plot(density(pmlpred1))
+#grid(ny=12, equilogs=TRUE)
+
+# Rule1 for transform data.
+
+#rule1 <- function(x) {
+#  pred <- rep(NA, length(x))
+#  pred [(x > 0.0 & x <= 1.5)] <-"A"
+#  pred [(x > 1.5 & x <= 2.5)] <-"B"
+#  pred [(x > 2.5 & x <= 3.5)] <-"C"
+#  pred [(x > 3.5 & x <= 4.5)] <-"D"
+#  pred [(x > 4.5 & x <= 6.0)] <-"E"
+#  return(pred)
+#  }
+
+#confusionMatrix((rule1(pmlpred1)), test$classe)
+
+#qplot(pmlpred1, colour=classe, data=test)
+
+                        
+```
+# This method produce accuracy: 96.92 %
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1091   11    0    0    0
+         B   25  723   10    0    0
+         C    0   25  658    6    0
+         D    0    0   16  620   11
+         E    0    0    0   17  710
+
+Overall Statistics
+                                          
+               Accuracy : 0.9692          
+                 95% CI : (0.9633, 0.9743)
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
